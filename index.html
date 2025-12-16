@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>图片字幕生成器</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>图片字幕生成器</h1>
+  </header>
+  <main class="main">
+    <section class="left">
+      <div class="card column-card">
+        <div class="group">
+          <h2>上传图片</h2>
+          <div class="upload">
+            <input id="fileInput" type="file" accept="image/*" />
+            <p class="hint">支持 jpg、jpeg、png、webp，大小 ≤ 10MB</p>
+          </div>
+        </div>
+        <div class="group">
+          <h2>字幕设置</h2>
+          <div class="form-grid">
+            <label>字幕高度
+              <div class="input-with-suffix">
+                <input id="subtitleHeight" type="number" value="80" min="24" />
+                <span>px</span>
+              </div>
+            </label>
+            <label>字体大小
+              <div class="input-with-suffix">
+                <input id="fontSize" type="number" value="40" min="12" />
+                <span>px</span>
+              </div>
+            </label>
+            <label>字体颜色
+              <input id="fillColor" type="color" value="#FFFFFF" />
+            </label>
+            <label>轮廓颜色
+              <input id="strokeColor" type="color" value="#000000" />
+            </label>
+            <label>字体样式
+              <select id="fontFamily">
+                <option value="Microsoft YaHei">微软雅黑</option>
+                <option value="PingFang SC">苹方</option>
+                <option value="Noto Sans SC">思源黑体</option>
+                <option value="Arial">Arial</option>
+                <option value="system-ui">系统默认</option>
+              </select>
+            </label>
+            <label>字体粗细
+              <select id="fontWeight">
+                <option value="normal" selected>正常</option>
+                <option value="bold">加粗</option>
+                <option value="600">半粗</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="group">
+          <h2>字幕内容</h2>
+          <textarea id="subtitleText" rows="8" placeholder="每行一条字幕"></textarea>
+        </div>
+        <div class="actions">
+          <button id="generateBtn" class="primary">生成字幕图片</button>
+          <button id="saveBtn" class="secondary">保存图片</button>
+        </div>
+      </div>
+    </section>
+    <section class="right">
+      <div class="card preview-card">
+        <h2>预览</h2>
+        <div class="preview" id="preview">
+          <div class="placeholder">请先选择图片</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
